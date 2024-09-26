@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fa-solid, .fas {
+    line-height: 1.5rem;
+}
+
+#overlay {
+    z-index: 100;
+}
+#sidebar {
+    z-index: 200;
+}
