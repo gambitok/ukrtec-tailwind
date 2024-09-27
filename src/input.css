@@ -12,3 +12,42 @@
 #sidebar {
     z-index: 200;
 }
+
+.bg-1 {
+    background: #366035!important;
+}
+.color-1 {
+    color: #366035!important;
+}
+.bg-2 {
+    background: #477c46!important;
+}
+.color-2 {
+    color: #477c46!important;
+}
+.bg-3 {
+    background: #589957!important;
+}
+.color-3 {
+    color: #589957!important;
+}
+.bg-4 {
+    background: #69b668!important;
+}
+.color-4 {
+    color: #69b668!important;
+}
+.bg-5 {
+    background: #20232a!important;
+}
+.color-5 {
+    color: #20232a!important;
+}
+
+.category-menu {
+    background-image: url(images/back1.png)!important;
+    background-size: cover!important;
+    top: 95%!important;
+    min-height: 300px!important;
+    padding: 30px!important;
+}
