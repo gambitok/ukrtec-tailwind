@@ -7,32 +7,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="src/output.css">
     <script src="node_modules/flowbite/dist/flowbite.js"></script>
-
     <title>Сайт</title>
 </head>
-
 <body class="bg-gray-100">
 
 <!-- Header -->
-<header>
+<header id="header" class="page-header">
+
+    <div id="alert-form" class="flex items-center p-4 text-white bg-red-600" role="alert">
+        <div class="ms-3 text-sm font-medium">
+            Hello! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quas quos sit? A, accusantium, animi autem culpa cupiditate expedita fuga libero minima necessitatibus nulla placeat ratione rem ullam veritatis voluptate?
+        </div>
+        <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-red-600 text-white rounded-lg focus:ring-2 focus:ring-red-800 p-1.5 hover:bg-red-900 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-form" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <i class="fa fa-x"></i>
+        </button>
+    </div>
+
     <!-- Перший рядок: Меню та зміна мови -->
     <div class="bg-white shadow bg-5">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="hidden md:flex space-x-4" id="menu">
-                <a href="#" class="color-3 text-gray-600 hover:text-green-500">Заголовок 1</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 2</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 3</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 4</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 5</a>
+                <a href="#" class="color-6 color-3">Заголовок 1</a>
+                <a href="#" class="color-6">Заголовок 2</a>
+                <a href="#" class="color-6">Заголовок 3</a>
+                <a href="#" class="color-6">Заголовок 4</a>
+                <a href="#" class="color-6">Заголовок 5</a>
             </div>
             <div class="md:hidden flex justify-center items-center">
                 <div>
-                    <button id="menu-toggle" class="text-gray-600 hover:text-green-500">
+                    <button id="menu-toggle" class="color-6">
                         <i class="fas fa-bars w-6 h-6"></i>
                     </button>
                     <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden"></div>
                     <div id="sidebar" class="fixed left-0 top-0 h-full w-80 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out bg-5 color-4">
-                        <button id="close-menu" class="text-gray-600 hover:text-green-500 p-4">
+                        <button id="close-menu" class="color-6 p-4">
                             <i class="fas fa-times"></i>
                         </button>
                         <ul class="p-4 space-y-2">
@@ -43,22 +52,20 @@
                         </ul>
                     </div>
                 </div>
-
-<!--                <img src="images/logo_new.png" alt="Логотип" class="ml-5" width="150" height="50">-->
             </div>
             <div>
                 <button class="color-3 text-green-700">Укр</button>
                 <span class="mx-2">|</span>
-                <button class="text-gray-600 hover:text-green-500">Рус</button>
+                <button class="color-6">Рус</button>
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="flex flex-col space-y-2 px-4 py-2 bg-white shadow">
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 1</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 2</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 3</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 4</a>
-                <a href="#" class="text-gray-600 hover:text-green-500">Заголовок 5</a>
+                <a href="#" class="color-6">Заголовок 1</a>
+                <a href="#" class="color-6">Заголовок 2</a>
+                <a href="#" class="color-6">Заголовок 3</a>
+                <a href="#" class="color-6">Заголовок 4</a>
+                <a href="#" class="color-6">Заголовок 5</a>
             </div>
         </div>
     </div>
@@ -93,7 +100,7 @@
                         </a>
                     </div>
                     <div class="ml-5">
-                        <span class="color-1 flex items-center mb-2">Шукайте нас в:</span>
+                        <span class="color-3 flex items-center mb-2">Шукайте нас в:</span>
                         <div class="flex items-center" style="height: 2rem;">
                             <div class="flex space-x-4">
                                 <a href="#" class="color-5 flex items-center hover:text-green-500">
@@ -116,7 +123,7 @@
 
             <div class="hidden lg:block">
                 <div class="flex justify-between">
-                    <button class="bg-3 color-5 flex items-center justify-center w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                    <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="bg-3 color-5 flex items-center justify-center w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
                         <i class="fas fa-sign-in-alt mr-2"></i>
                         Увійти
                     </button>
@@ -139,21 +146,23 @@
                 </button>
                 <div id="category-menu" class="category-menu absolute left-0 right-0 mt-1 hidden bg-white shadow-lg rounded grid grid-cols-4 z-10 top-20">
                     <div class="col-span-1 p-1 w-25">
-                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100" data-category="1">Категорія 1</a>
-                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100" data-category="2">Категорія 2</a>
-                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100" data-category="3">Категорія 3</a>
-                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100" data-category="4">Категорія 4</a>
-                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100" data-category="5">Категорія 5</a>
+                        <a href="#" class="block px-4 py-2 color-6" data-category="1">Категорія 1</a>
+                        <a href="#" class="block px-4 py-2 color-6" data-category="2">Категорія 2</a>
+                        <a href="#" class="block px-4 py-2 color-6" data-category="3">Категорія 3</a>
+                        <a href="#" class="block px-4 py-2 color-6" data-category="4">Категорія 4</a>
+                        <a href="#" class="block px-4 py-2 color-6" data-category="5">Категорія 5</a>
                     </div>
                     <div id="subcategories" class="col-span-3 p-2 w-75">
                         <!-- Підкатегорії -->
                     </div>
                 </div>
             </div>
+
             <div class="flex-grow mx-4 relative">
                 <input type="text" placeholder="Пошук..." class="w-full px-4 py-2 border border-gray-300 rounded pr-10">
                 <i class="fas fa-search absolute right-3 top-2.5 w-5 h-5 text-gray-400"></i>
             </div>
+
             <button class="bg-4 color-5 bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-300 text-white p-2 rounded flex items-center justify-center h-full relative md:mt-0">
                 <i class="fas fa-cart-shopping w-6 h-6"></i>
                 <span class="absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full px-1.5 -mt-1 -mr-1">3</span>
@@ -202,92 +211,142 @@
 </div>
 
 <!-- Меню -->
-<div class="max-w-7xl mx-auto px-4 py-8">
-    <nav class="flex mb-4" aria-label="Breadcrumb">
-        <ol class="inline-flex items-center space-x-1 md:space-x-3">
-            <li>
-                <div class="flex items-center">
-                    <a href="#" class="text-gray-700 hover:text-green-500">Головна</a>
-                    <i class="fas fa-chevron-right mx-1 text-gray-400"></i>
+<div class="main-container">
+    <div class="main max-w-7xl mx-auto px-4 py-8">
+        <div class="breadcrumbs flex mb-4" aria-label="Breadcrumb">
+            <ul class="inline-flex items-center space-x-1 md:space-x-3">
+                <li>
+                    <div class="flex items-center">
+                        <a href="#" class="text-gray-700 hover:text-green-500">Головна</a>
+                        <i class="fas fa-chevron-right mx-1 text-gray-400"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <a href="#" class="text-gray-700 hover:text-green-500">Категорія</a>
+                        <i class="fas fa-chevron-right mx-1 text-gray-400"></i>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <span class="text-gray-500">Поточна сторінка</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="page-title category-title text-2xl font-bold mb-6">
+            <h1>Наші товари</h1>
+        </div>
+
+        <div class="flex items-center justify-between p-4 bg-white shadow-md mb-4 mt-4 rounded-lg">
+            <!-- Сортування -->
+            <div class="flex items-center space-x-4">
+                <label for="sort" class="text-sm font-medium text-gray-700">Сортування:</label>
+                <select id="sort" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="latest">Новіші</option>
+                    <option value="oldest">Старіші</option>
+                    <option value="price-asc">Ціна: зростання</option>
+                    <option value="price-desc">Ціна: спаду</option>
+                </select>
+            </div>
+
+            <!-- Перегляд -->
+            <div class="flex items-center space-x-4">
+                <span class="text-sm">Перегляд:</span>
+                <button class="p-2 rounded-md bg-gray-200 hover:bg-gray-300">
+                    <i class="fas fa-th-list"></i>
+                </button>
+                <button class="p-2 rounded-md bg-gray-200 hover:bg-gray-300">
+                    <i class="fas fa-th"></i>
+                </button>
+            </div>
+
+            <!-- Кількість продуктів -->
+            <div class="text-sm font-medium text-gray-700">
+                Кількість продуктів: <span id="product-count">20</span>
+            </div>
+
+            <!-- Вибір кількості продуктів на сторінці -->
+            <div class="flex items-center space-x-4">
+                <label for="items-per-page" class="text-sm font-medium text-gray-700">Кількість на сторінці:</label>
+                <select id="items-per-page" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="36">36</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="category-products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <!-- Карточка товару 1 -->
+            <div class="bg-white shadow rounded-lg overflow-hidden relative">
+                <div class="relative">
+                    <img src="https://via.placeholder.com/300" class="w-full h-auto" alt="Image" />
+                    <div class="absolute top-0 right-0 p-2">
+                        <img src="images/bg-old.png" class="h-16 opacity-50" alt="Watermark" />
+                    </div>
                 </div>
-            </li>
-            <li>
-                <div class="flex items-center">
-                    <a href="#" class="text-gray-700 hover:text-green-500">Категорія</a>
-                    <i class="fas fa-chevron-right mx-1 text-gray-400"></i>
+                <div class="absolute top-0 left-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-br-lg">Акція!</div>
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Товар 1</h2>
+                    <p class="text-gray-600">Короткий опис товару 1. Це чудовий товар, який вам сподобається!</p>
+                    <p class="text-xl font-bold mt-2">₴500</p>
+                    <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
+                        <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
+                    </button>
                 </div>
-            </li>
-            <li aria-current="page">
-                <span class="text-gray-500">Поточна сторінка</span>
-            </li>
-        </ol>
-    </nav>
-    <h1 class="text-2xl font-bold mb-6">Наші товари</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Карточка товару 1 -->
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300" alt="Товар 1" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-lg font-semibold">Товар 1</h2>
-                <p class="text-gray-600">Короткий опис товару 1. Це чудовий товар, який вам сподобається!</p>
-                <p class="text-xl font-bold mt-2">₴500</p>
-                <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
-                    <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
-                </button>
             </div>
-        </div>
 
-        <!-- Карточка товару 2 -->
-        <div class="bg-white shadow rounded-lg overflow-hidden relative">
-            <img src="https://via.placeholder.com/300" alt="Товар 2" class="w-full h-48 object-cover">
-            <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">Акція!</div>
-            <div class="p-4">
-                <h2 class="text-lg font-semibold">Товар 2</h2>
-                <p class="text-gray-600">Короткий опис товару 2. Це чудовий товар, який вам сподобається!</p>
-                <p class="text-xl font-bold mt-2">₴300</p>
-                <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
-                    <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
-                </button>
+            <!-- Карточка товару 2 -->
+            <div class="bg-white shadow rounded-lg overflow-hidden relative">
+                <img src="https://via.placeholder.com/300" alt="Товар 2" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Товар 2</h2>
+                    <p class="text-gray-600">Короткий опис товару 2. Це чудовий товар, який вам сподобається!</p>
+                    <p class="text-xl font-bold mt-2">₴300</p>
+                    <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
+                        <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <!-- Карточка товару 3 -->
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300" alt="Товар 3" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-lg font-semibold">Товар 3</h2>
-                <p class="text-gray-600">Короткий опис товару 3. Це чудовий товар, який вам сподобається!</p>
-                <p class="text-xl font-bold mt-2">₴700</p>
-                <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
-                    <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
-                </button>
+            <!-- Карточка товару 3 -->
+            <div class="bg-white shadow rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300" alt="Товар 3" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Товар 3</h2>
+                    <p class="text-gray-600">Короткий опис товару 3. Це чудовий товар, який вам сподобається!</p>
+                    <p class="text-xl font-bold mt-2">₴700</p>
+                    <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
+                        <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <!-- Карточка товару 4 -->
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/300" alt="Товар 4" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-lg font-semibold">Товар 4</h2>
-                <p class="text-gray-600">Короткий опис товару 4. Це чудовий товар, який вам сподобається!</p>
-                <p class="text-xl font-bold mt-2">₴450</p>
-                <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
-                    <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
-                </button>
+            <!-- Карточка товару 4 -->
+            <div class="bg-white shadow rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300" alt="Товар 4" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">Товар 4</h2>
+                    <p class="text-gray-600">Короткий опис товару 4. Це чудовий товар, який вам сподобається!</p>
+                    <p class="text-xl font-bold mt-2">₴450</p>
+                    <button class="bg-4 mt-4 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 flex items-center justify-center">
+                        <i class="fas fa-cart-shopping mr-2"></i> Додати в кошик
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <!-- Додайте інші карточки за потреби -->
+        </div>
     </div>
 </div>
 
 <!-- Футер -->
-<footer class="bg-5 text-white pb-5">
-    <div class="bg-1 w-full h-10 mb-5">
+<div class="footer-container bg-5 text-white pb-5">
+    <div class="bg-4 w-full h-10 mb-5">
     </div>
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="footer max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Про нас</h3>
                 <ul>
                     <li><a href="#" class="hover:underline">Наша історія</a></li>
@@ -296,7 +355,7 @@
                     <li><a href="#" class="hover:underline">Контакти</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Послуги</h3>
                 <ul>
                     <li><a href="#" class="hover:underline">Консультації</a></li>
@@ -305,7 +364,7 @@
                     <li><a href="#" class="hover:underline">Тестування</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Підтримка</h3>
                 <ul>
                     <li><a href="#" class="hover:underline">FAQ</a></li>
@@ -314,7 +373,7 @@
                     <li><a href="#" class="hover:underline">Проблеми</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Соціальні мережі</h3>
                 <ul class="flex flex-col space-y-2">
                     <li><a href="#" class="flex items-center hover:underline"><i class="fab fa-facebook-f w-6 text-center mr-2"></i> Facebook</a></li>
@@ -325,10 +384,57 @@
             </div>
         </div>
         <div class="mt-8 border-t border-gray-700 pt-4 text-center">
-            <p>&copy; 2024 Назва Сайту. Всі права захищені.</p>
+            <address class="copyright">&copy; 2024 Назва Сайту. Всі права захищені.</address>
         </div>
     </div>
-</footer>
+</div>
+
+<!-- Main modal -->
+<div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Sign in to our platform
+                </h3>
+                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5">
+                <form class="space-y-4" action="#">
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+                            </div>
+                            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                        </div>
+                        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+                    </div>
+                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                        Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     const categoryButton = document.getElementById('category-button');
@@ -351,7 +457,7 @@
         link.addEventListener('mouseenter', (e) => {
             const categoryId = e.target.getAttribute('data-category');
             const subcategories = subcategoriesData[categoryId] || [];
-            subcategoriesContainer.innerHTML = subcategories.map(sub => `<a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">${sub}</a>`).join('');
+            subcategoriesContainer.innerHTML = subcategories.map(sub => `<a href="#" class="block px-4 py-2 color-6">${sub}</a>`).join('');
         });
     });
 
