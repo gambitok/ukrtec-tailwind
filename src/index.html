@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+    <script src="node_modules/tailwindcss"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="src/output.css">
     <script src="node_modules/flowbite/dist/flowbite.js"></script>
@@ -11,7 +13,7 @@
 <body class="bg-gray-100">
 
 <!-- Header -->
-<header id="header">
+<header id="header" class="page-header">
 
     <div id="alert-form" class="flex items-center p-4 text-white bg-red-600" role="alert">
         <div class="ms-3 text-sm font-medium">
@@ -162,7 +164,7 @@
                 <i class="fas fa-search absolute right-3 top-2.5 w-5 h-5 text-gray-400"></i>
             </div>
 
-            <button data-modal-target="basket-modal" data-modal-toggle="basket-modal" type="button" class="bg-4 color-5 bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-300 text-white p-2 rounded flex items-center justify-center h-full relative md:mt-0">
+            <button class="bg-4 color-5 bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-300 text-white p-2 rounded flex items-center justify-center h-full relative md:mt-0">
                 <i class="fas fa-cart-shopping w-6 h-6"></i>
                 <span class="absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full px-1.5 -mt-1 -mr-1">3</span>
             </button>
@@ -340,12 +342,12 @@
 </div>
 
 <!-- Футер -->
-<div class="bg-5 text-white pb-5">
+<div class="footer-container bg-5 text-white pb-5">
     <div class="bg-4 w-full h-10 mb-5">
     </div>
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="footer max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Про нас</h3>
                 <ul>
                     <li><a href="#" class="hover:underline">Наша історія</a></li>
@@ -354,7 +356,7 @@
                     <li><a href="#" class="hover:underline">Контакти</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Послуги</h3>
                 <ul>
                     <li><a href="#" class="hover:underline">Консультації</a></li>
@@ -363,7 +365,7 @@
                     <li><a href="#" class="hover:underline">Тестування</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Підтримка</h3>
                 <ul>
                     <li><a href="#" class="hover:underline">FAQ</a></li>
@@ -372,7 +374,7 @@
                     <li><a href="#" class="hover:underline">Проблеми</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="links">
                 <h3 class="font-bold text-lg mb-2 color-4">Соціальні мережі</h3>
                 <ul class="flex flex-col space-y-2">
                     <li><a href="#" class="flex items-center hover:underline"><i class="fab fa-facebook-f w-6 text-center mr-2"></i> Facebook</a></li>
@@ -384,6 +386,53 @@
         </div>
         <div class="mt-8 border-t border-gray-700 pt-4 text-center">
             <address class="copyright">&copy; 2024 Назва Сайту. Всі права захищені.</address>
+        </div>
+    </div>
+</div>
+
+<!-- Main modal -->
+<div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Sign in to our platform
+                </h3>
+                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5">
+                <form class="space-y-4" action="#">
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+                            </div>
+                            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                        </div>
+                        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+                    </div>
+                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                        Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -434,137 +483,6 @@
         overlay.classList.add('hidden');
     });
 </script>
-
-<!-- Main modal -->
-<div id="authentication-modal" style="height: 100%; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-md max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Sign in to our platform
-                </h3>
-                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="p-4 md:p-5">
-                <form class="space-y-4" action="#">
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
-                    </div>
-                    <div class="flex justify-between">
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
-                            </div>
-                            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-                        </div>
-                        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
-                    </div>
-                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
-                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Basket modal -->
-<div id="basket-modal" style="height: 100%; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-h-full" style="max-width: 1024px;">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Shopping Cart
-                </h3>
-                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="basket-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="p-4 md:p-5">
-                <section class="bg-white antialiased">
-                    <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
-                        <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
-                            <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
-                                <div class="space-y-6">
-                                    <!--                        карточки-->
-                                    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:p-6">
-                                        <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
-                                            <a href="#" class="shrink-0 md:order-1">
-                                                <img class="h-20 w-20" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg" alt="imac image" />
-                                                <img class="hidden h-20 w-20" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="imac image" />
-                                            </a>
-
-                                            <label for="counter-input" class="sr-only">Choose quantity:</label>
-                                            <div class="flex items-center justify-between md:order-3 md:justify-end">
-                                                <div class="flex items-center">
-                                                    <button type="button" id="decrement-button" data-input-counter-decrement="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
-                                                        <i class="fa fa-minus"></i>
-                                                    </button>
-                                                    <input type="text" id="counter-input" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 " placeholder="" value="2" required />
-                                                    <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
-                                                        <i class="fa fa-plus"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="text-end md:order-4 md:w-32">
-                                                    <p class="text-base font-bold text-gray-900 ">$1,499</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-                                                <a href="#" class="text-base font-medium text-gray-900 hover:underline ">PC system All in One APPLE iMac (2023) mqrq3ro/a, Apple M3, 24" Retina 4.5K, 8GB, SSD 256GB, 10-core GPU, Keyboard layout INT</a>
-
-                                                <div class="flex items-center gap-4">
-                                                    <button type="button" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 hover:underline  ">
-                                                        <i class="fa fa-heart mr-2"></i> Add to Favorites
-                                                    </button>
-
-                                                    <button type="button" class="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
-                                                        <i class="fa fa-trash mr-2"></i>Remove
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--                        сюди нові-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-6 mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
-                            <div class="flex space-x-4">
-                                <button class="w-1/2 bg-white text-black border border-blue-500 py-2 rounded" data-modal-hide="basket-modal">
-                                    Continue Shopping
-                                </button>
-                                <button class="w-1/2 bg-blue-500 text-white py-2 rounded">
-                                    Checkout
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
 
 </body>
 </html>

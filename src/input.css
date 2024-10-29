@@ -13,10 +13,6 @@
     z-index: 200;
 }
 
-/*#72914b*/
-
-/*#23271d*/
-
 .bg-1 {
     background: #366035!important;
 }
@@ -60,4 +56,34 @@
     top: 95%!important;
     min-height: 300px!important;
     padding: 30px!important;
+}
+.swiper-container {
+    overflow: hidden;
+    position: relative;
+}
+.swiper-slide {
+    cursor: pointer;
+}
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+.swiper-button-next {
+    right: 10px;
+}
+.swiper-button-prev {
+    left: 10px;
+}
+.swiper-pagination {
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
 }

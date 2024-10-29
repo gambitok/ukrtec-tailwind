@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Checkout</title>
+</head>
+<body>
+
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Оформлення замовлення</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Shipping Information -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Адреса доставки</h2>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="name">Ім'я</label>
+                    <input type="text" id="name" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваше ім'я" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="address">Адреса</label>
+                    <input type="text" id="address" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваша адреса" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="city">Місто</label>
+                    <input type="text" id="city" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваше місто" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="zip">Поштовий індекс</label>
+                    <input type="text" id="zip" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Поштовий індекс" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="phone">Телефон</label>
+                    <input type="tel" id="phone" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваш телефон" required>
+                </div>
+            </form>
+
+            <!-- Payment Information -->
+            <h2 class="text-xl font-semibold mb-4">Оплата</h2>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">Card number</label>
+                    <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Name on card</label>
+                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Type Name" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Expiration date (MM/YY)</label>
+                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="MM/YY" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">CVC</label>
+                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="***" required>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Ваш кошик</h2>
+            <ul class="divide-y divide-gray-200">
+                <li class="flex justify-between py-2">
+                    <span>Продукт 1</span>
+                    <span>₴100.00</span>
+                </li>
+                <li class="flex justify-between py-2">
+                    <span>Продукт 2</span>
+                    <span>₴150.00</span>
+                </li>
+                <li class="flex justify-between py-2">
+                    <span>Продукт 3</span>
+                    <span>₴200.00</span>
+                </li>
+            </ul>
+
+            <div class="mt-4 p-4 border border-gray-300 rounded-lg">
+                <div class="flex justify-between font-semibold">
+                    <span>Разом:</span>
+                    <span>₴450.00</span>
+                </div>
+                <div class="flex justify-between font-semibold mt-2">
+                    <span>Доставка:</span>
+                    <span>₴50.00</span>
+                </div>
+                <div class="flex justify-between font-semibold mt-2">
+                    <span>Знижка:</span>
+                    <span class="text-red-500">₴-20.00</span>
+                </div>
+                <div class="flex justify-between font-bold mt-4">
+                    <span>Загальна сума:</span>
+                    <span>₴480.00</span>
+                </div>
+            </div>
+            
+            <!-- Promo Code Section -->
+            <div class="mt-4 p-4 border border-gray-300 rounded-lg">
+                <label class="block text-gray-700 mb-2" for="promo-code">Введіть промокод:</label>
+                <div class="flex">
+                    <input type="text" id="promo-code" class="flex-1 p-2 border border-gray-300 rounded-md" placeholder="Промокод" />
+                    <button class="bg-white text-green-600 font-semibold py-2 rounded-md border border-green-600 hover:bg-green-600 hover:text-white transition duration-200 ml-2 p-4">Застосувати</button>
+                </div>
+            </div>
+
+            <button class="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4">Оформити замовлення</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

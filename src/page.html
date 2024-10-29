@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-100">
+
+<!-- Container -->
+<div class="container mx-auto p-4">
+    <!-- Product Section -->
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto flex flex-col md:flex-row">
+        <!-- Product Image -->
+        <div class="md:w-1/2">
+
+            <div class="container mx-auto p-4">
+                <!-- Product Main Image -->
+                <div class="mb-4">
+                    <img id="main-image" src="/images/product/500.png" alt="Product Image" class="w-full rounded-lg">
+                </div>
+
+                <!-- Product Thumbnail Slider -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" data-image="/images/product/red.png">
+                            <img src="/images/product/red.png" alt="Product Image 1" class="w-full rounded-lg">
+                        </div>
+                        <div class="swiper-slide" data-image="/images/product/green.png">
+                            <img src="/images/product/green.png" alt="Product Image 2" class="w-full rounded-lg">
+                        </div>
+                        <div class="swiper-slide" data-image="/images/product/blue.png">
+                            <img src="/images/product/blue.png" alt="Product Image 3" class="w-full rounded-lg">
+                        </div>
+                        <div class="swiper-slide" data-image="/images/product/blue.png">
+                            <img src="/images/product/blue.png" alt="Product Image 3" class="w-full rounded-lg">
+                        </div>
+                        <div class="swiper-slide" data-image="/images/product/red.png">
+                            <img src="/images/product/red.png" alt="Product Image 1" class="w-full rounded-lg">
+                        </div>
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="md:w-1/2 md:pl-8">
+            <!-- Product Title -->
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Product Name</h2>
+
+            <!-- Product Price -->
+            <p class="text-xl text-gray-700 mb-4">$99.99</p>
+
+            <!-- Product Rating -->
+            <div class="flex items-center mb-4">
+                <span class="text-yellow-500 text-lg mr-1">⭐</span>
+                <span class="text-yellow-500 text-lg mr-1">⭐</span>
+                <span class="text-yellow-500 text-lg mr-1">⭐</span>
+                <span class="text-yellow-500 text-lg mr-1">⭐</span>
+                <span class="text-gray-300 text-lg">⭐</span>
+                <span class="text-gray-600 ml-2">(120 reviews)</span>
+            </div>
+
+            <!-- Product Availability -->
+            <p class="text-green-600 font-semibold mb-2">Availability: In stock</p>
+
+            <!-- Color Picker -->
+            <div class="flex items-center mb-4">
+                <label class="block text-gray-600 mb-2">Color:</label>
+                <div class="p-2 flex space-x-2 ">
+                    <button class="w-8 h-8 rounded-full bg-red-500 border-2 border-transparent focus:border-gray-500" title="Red"></button>
+                    <button class="w-8 h-8 rounded-full bg-blue-500 border-2 border-transparent focus:border-gray-500" title="Blue"></button>
+                    <button class="w-8 h-8 rounded-full bg-green-500 border-2 border-transparent focus:border-gray-500" title="Green"></button>
+                    <button class="w-8 h-8 rounded-full bg-yellow-500 border-2 border-transparent focus:border-gray-500" title="Yellow"></button>
+                </div>
+            </div>
+
+            <!-- Size Selector -->
+            <div class="flex items-center mb-4">
+                <label class="text-gray-600 mr-4">Size:</label>
+                <select class="p-2 border border-gray-300 rounded-md">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+
+            <!-- Product Quantity Selector -->
+            <div class="flex items-center mb-4">
+                <label class="text-gray-600 mr-2" for="quantity">Amount:</label>
+                <input
+                        type="number"
+                        id="quantity"
+                        min="1"
+                        max="10"
+                        value="1"
+                        class="w-24 p-2 border border-gray-300 rounded-md">
+            </div>
+
+            <!-- Product Manufacturer -->
+            <p class="text-gray-600 mb-4">Manufacturer: China</p>
+
+            <!-- Product Description -->
+            <p class="text-gray-600 mb-4">This is a short description of the product. It provides an overview of the product's main features, making it appealing to customers.</p>
+
+            <!-- Product about -->
+            <div class="container mx-auto mt-4 mb-4">
+                <table class="min-w-full bg-white border text-xs border-gray-300 rounded-lg ">
+                    <tbody>
+                    <tr class="border-b hover:bg-gray-100 transition duration-200">
+                        <td class="py-2 px-3 text-gray-700 font-bold">Стать:</td>
+                        <td class="py-2 px-3 text-gray-800">Чоловічий</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100 transition duration-200">
+                        <td class="py-2 px-3 text-gray-700 font-bold">Сезон:</td>
+                        <td class="py-2 px-3 text-gray-800">Зима</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100 transition duration-200">
+                        <td class="py-2 px-3 text-gray-700 font-bold">Вид тактичного взуття:</td>
+                        <td class="py-2 px-3 text-gray-800">Берці</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100 transition duration-200">
+                        <td class="py-2 px-3 text-gray-700 font-bold">Матеріал:</td>
+                        <td class="py-2 px-3 text-gray-800">Натуральна шкіра</td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-100 transition duration-200">
+                        <td class="py-2 px-3 text-gray-700 font-bold">Призначення:</td>
+                        <td class="py-2 px-3 text-gray-800">Військове</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300 mb-4">Add to Cart</button>
+
+            <!-- Wishlist and Compare Buttons -->
+            <div class="flex space-x-4 mb-4">
+                <button class="flex-1 bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg hover:bg-gray-300 transition duration-300">Add to Wishlist</button>
+                <button class="flex-1 bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg hover:bg-gray-300 transition duration-300">Add to Compare</button>
+            </div>
+
+            <!-- Social Share Links -->
+            <div class="flex space-x-4 text-gray-600 text-sm">
+                <a href="#" class="hover:text-blue-600 transition duration-300 flex items-center">
+                    <i class="fab fa-facebook-f mr-1"></i> Share on Facebook
+                </a>
+                <a href="#" class="hover:text-blue-400 transition duration-300 flex items-center">
+                    <i class="fab fa-twitter mr-1"></i> Share on Twitter
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Include Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    // Додаємо обробник події для зміни основного зображення
+    const slides = document.querySelectorAll('.swiper-slide');
+    const mainImage = document.getElementById('main-image');
+
+    slides.forEach(slide => {
+        slide.addEventListener('click', function () {
+            const newImage = this.getAttribute('data-image');
+            mainImage.src = newImage; // Змінюємо основне зображення
+        });
+    });
+</script>
+</body>
+</html>
