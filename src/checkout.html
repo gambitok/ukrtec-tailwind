@@ -6,6 +6,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Checkout</title>
+    <style>
+        /* Приховуємо додаткові форми за замовчуванням */
+        .payment-info {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,62 +28,121 @@
                     <input type="text" id="name" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваше ім'я" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="address">Адреса</label>
-                    <input type="text" id="address" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваша адреса" required>
+                    <label class="block text-gray-700 mb-2" for="surname">Прізвище</label>
+                    <input type="text" id="surname" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваше прізвище" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="phone">Телефон</label>
+                    <input type="tel" id="phone" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваш телефон" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="email">E-mail</label>
+                    <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваш E-mail" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 mb-2" for="city">Місто</label>
                     <input type="text" id="city" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваше місто" required>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="zip">Поштовий індекс</label>
-                    <input type="text" id="zip" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Поштовий індекс" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="phone">Телефон</label>
-                    <input type="tel" id="phone" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваш телефон" required>
+                    <label class="block text-gray-700 mb-2" for="address">Адреса</label>
+                    <input type="text" id="address" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Ваша адреса" required>
                 </div>
             </form>
 
             <!-- Payment Information -->
             <h2 class="text-xl font-semibold mb-4">Оплата</h2>
+            <!-- Вибір методу оплати -->
+            <form>
                 <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700">Card number</label>
-                    <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required placeholder="1234 5678 9012 3456">
+                    <input type="radio" name="payment-method" id="payment-card" class="mr-2" onclick="showPaymentInfo('card-info')">
+                    <label for="payment-card" class="font-medium text-gray-700">Credit/Debit Card</label>
                 </div>
-                <div class="grid grid-cols-3 gap-4 mb-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Name on card</label>
-                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Type Name" required>
+
+                <div class="mb-4">
+                    <input type="radio" name="payment-method" id="payment-cash" class="mr-2" onclick="showPaymentInfo('')">
+                    <label for="payment-cash" class="font-medium text-gray-700">Cash on Delivery</label>
+                </div>
+
+                <div class="mb-4">
+                    <input type="radio" name="payment-method" id="payment-paypal" class="mr-2" onclick="showPaymentInfo('paypal-info')">
+                    <label for="payment-paypal" class="font-medium text-gray-700">PayPal</label>
+                </div>
+
+                <!-- Поля для картки -->
+                <div id="card-info" class="payment-info mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Card Information</h4>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">Card Number</label>
+                        <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="1234 5678 9123 4567">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Expiration date (MM/YY)</label>
-                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="MM/YY" required>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">Expiry Date</label>
+                        <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="MM/YY">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">CVC</label>
-                        <input type="text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="***" required>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">CVV</label>
+                        <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="123">
                     </div>
                 </div>
+
+                <!-- Поля для PayPal -->
+                <div id="paypal-info" class="payment-info mt-4">
+                    <h4 class="text-lg font-semibold mb-2">PayPal Information</h4>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">PayPal Email</label>
+                        <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" placeholder="your-email@example.com">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-semibold mb-2">PayPal Password</label>
+                        <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" placeholder="********">
+                    </div>
+                </div>
+            </form>
         </div>
 
         <!-- Cart Summary -->
         <div class="bg-white shadow-md rounded-lg p-6">
             <h2 class="text-xl font-semibold mb-4">Ваш кошик</h2>
-            <ul class="divide-y divide-gray-200">
-                <li class="flex justify-between py-2">
-                    <span>Продукт 1</span>
-                    <span>₴100.00</span>
-                </li>
-                <li class="flex justify-between py-2">
-                    <span>Продукт 2</span>
-                    <span>₴150.00</span>
-                </li>
-                <li class="flex justify-between py-2">
-                    <span>Продукт 3</span>
-                    <span>₴200.00</span>
-                </li>
-            </ul>
+            <div class="space-y-6">
+               <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:p-6">
+                   <div class="space-y-4 lg:flex lg:items-center sm:justify-between md:gap-6 md:space-y-0">
+                       <a href="#" class="shrink-0 md:order-1">
+                           <img class="h-20 w-20" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg" alt="imac image" />
+                           <img class="hidden h-20 w-20" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="imac image" />
+                       </a>
+
+                       <label for="counter-input" class="sr-only">Choose quantity:</label>
+                       <div class="flex items-center justify-between md:order-3 md:justify-end">
+                           <div class="flex items-center">
+                               <button type="button" id="decrement-button" data-input-counter-decrement="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-xs border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                   <i class="fa fa-minus"></i>
+                               </button>
+                               <input type="text" id="counter-input" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 " placeholder="" value="2" required />
+                               <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-xs border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                   <i class="fa fa-plus"></i>
+                               </button>
+                           </div>
+                           <div class="text-end md:order-4 md:w-32">
+                               <p class="text-base font-bold text-gray-900 ">$1,499</p>
+                           </div>
+                       </div>
+
+                       <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                           <a href="#" class="text-base font-medium text-gray-900 hover:underline">PC system All in One APPLE iMac (2023) mqrq3ro/a, Apple M3, 24" Retina 4.5K, 8GB, SSD 256GB, 10-core GPU, Keyboard layout INT</a>
+
+                           <div class="flex items-center gap-4">
+                               <button type="button" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 hover:underline  ">
+                                   <i class="fa fa-heart mr-2"></i> Add to Favorites
+                               </button>
+
+                               <button type="button" class="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
+                                   <i class="fa fa-trash mr-2"></i>Remove
+                               </button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
 
             <div class="mt-4 p-4 border border-gray-300 rounded-lg">
                 <div class="flex justify-between font-semibold">
@@ -90,27 +155,40 @@
                 </div>
                 <div class="flex justify-between font-semibold mt-2">
                     <span>Знижка:</span>
-                    <span class="text-red-500">₴-20.00</span>
+                    <span class="text-green-500">₴-20.00</span>
                 </div>
-                <div class="flex justify-between font-bold mt-4">
+                <div class="flex justify-between font-bold mt-4 border-t border-gray-200 pt-4">
                     <span>Загальна сума:</span>
                     <span>₴480.00</span>
                 </div>
             </div>
-            
+
             <!-- Promo Code Section -->
             <div class="mt-4 p-4 border border-gray-300 rounded-lg">
                 <label class="block text-gray-700 mb-2" for="promo-code">Введіть промокод:</label>
-                <div class="flex">
+                <div class="flex flex-col md:flex-col lg:flex-row lg:space-y-0 sm:space-y-2">
                     <input type="text" id="promo-code" class="flex-1 p-2 border border-gray-300 rounded-md" placeholder="Промокод" />
-                    <button class="bg-white text-green-600 font-semibold py-2 rounded-md border border-green-600 hover:bg-green-600 hover:text-white transition duration-200 ml-2 p-4">Застосувати</button>
+                    <button class="bg-white text-blue-600 font-semibold rounded-md border border-blue-600 hover:bg-blue-600 hover:text-white transition duration-200 h-full flex items-center justify-center lg:ml-2 mt-2 md:mt-0 p-2">Застосувати</button>
                 </div>
             </div>
 
             <button class="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4">Оформити замовлення</button>
+
         </div>
     </div>
 </div>
 
+<script>
+    function showPaymentInfo(paymentId) {
+        // Сховати всі елементи з класом .payment-info
+        document.querySelectorAll('.payment-info').forEach(element => {
+            element.style.display = 'none';
+        });
+        // Показати вибраний елемент
+        if (paymentId) {
+            document.getElementById(paymentId).style.display = 'block';
+        }
+    }
+</script>
 </body>
 </html>
